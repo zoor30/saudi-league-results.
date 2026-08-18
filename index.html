@@ -4,9 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <title>عزبة نجد</title>
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+<link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
+<link rel="dns-prefetch" href="https://unpkg.com">
+<link rel="dns-prefetch" href="https://raw.githubusercontent.com">
 <style>
-*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#94d3ea;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;touch-action:none}canvas{display:block}.hud{position:fixed;inset:0;pointer-events:none}.top{position:absolute;top:max(10px,env(safe-area-inset-top));left:10px;right:10px;display:flex;justify-content:space-between;gap:8px}.card{background:linear-gradient(#563820ed,#3b2818ed);color:#fff;border:2px solid #f2d39b88;border-radius:16px;padding:8px 12px;box-shadow:0 5px 15px #0004;font-weight:800}.brand{font-size:18px;white-space:nowrap}.stats{font-size:11px;line-height:1.75;text-align:right}.bottom{position:absolute;bottom:max(14px,env(safe-area-inset-bottom));left:7px;right:7px;display:flex;gap:6px;justify-content:center;pointer-events:auto}.btn{border:2px solid #fff7;border-radius:15px;padding:10px 9px;background:linear-gradient(#ffd96f,#d9972e);box-shadow:0 4px 0 #81501d,0 8px 16px #0003;font-weight:900;color:#472b14;font-size:12px;flex:1;max-width:105px}.btn:active{transform:translateY(3px);box-shadow:0 1px 0 #81501d}.toast{position:absolute;bottom:88px;left:50%;transform:translateX(-50%);background:#2f251de8;color:#fff;padding:9px 14px;border-radius:13px;opacity:0;transition:.2s;white-space:nowrap}.toast.on{opacity:1}.loading{position:absolute;top:86px;left:50%;transform:translateX(-50%);background:#fffde8;color:#4b321f;padding:8px 13px;border-radius:14px;font-weight:800;box-shadow:0 4px 12px #0002}.animal{display:none;position:absolute;right:10px;top:100px;width:190px;background:#fff8e9f2;color:#3b2a1c;border:2px solid #7d542e;border-radius:17px;padding:10px;box-shadow:0 8px 20px #0003;pointer-events:auto}.animal.on{display:block}.animal h3{margin:0 0 5px;font-size:16px}.small{font-size:10px;opacity:.75;margin-bottom:5px}.row{display:flex;align-items:center;gap:5px;font-size:10px;margin:4px 0}.bar{height:8px;flex:1;background:#d9cdbb;border-radius:20px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,#6c8e3f,#9eba55);border-radius:20px;transition:width .2s}.pet{width:100%;margin-top:7px;border:0;border-radius:10px;padding:7px;background:#e8b34d;font-weight:800;color:#4c3219}.hint{position:absolute;left:50%;top:105px;transform:translateX(-50%);padding:6px 10px;border-radius:12px;background:#342619b8;color:#fff;font-size:10px;transition:.5s}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:linear-gradient(#8dd6ef 0 54%,#d7b270 54% 100%);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;touch-action:none}canvas{display:block}.hud{position:fixed;inset:0;pointer-events:none}.top{position:absolute;top:max(10px,env(safe-area-inset-top));left:10px;right:10px;display:flex;justify-content:space-between;gap:8px}.card{background:linear-gradient(#563820ed,#3b2818ed);color:#fff;border:2px solid #f2d39b88;border-radius:16px;padding:8px 12px;box-shadow:0 5px 15px #0004;font-weight:800}.brand{font-size:18px;white-space:nowrap}.stats{font-size:11px;line-height:1.75;text-align:right}.bottom{position:absolute;bottom:max(14px,env(safe-area-inset-bottom));left:7px;right:7px;display:flex;gap:6px;justify-content:center;pointer-events:auto}.btn{border:2px solid #fff7;border-radius:15px;padding:10px 9px;background:linear-gradient(#ffd96f,#d9972e);box-shadow:0 4px 0 #81501d,0 8px 16px #0003;font-weight:900;color:#472b14;font-size:12px;flex:1;max-width:105px}.btn:active{transform:translateY(3px);box-shadow:0 1px 0 #81501d}.toast{position:absolute;bottom:88px;left:50%;transform:translateX(-50%);background:#2f251de8;color:#fff;padding:9px 14px;border-radius:13px;opacity:0;transition:.2s;white-space:nowrap}.toast.on{opacity:1}.loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(#8dd6ef 0 54%,#d7b270 54% 100%);z-index:5;transition:opacity .35s}.loadingCard{width:min(82vw,310px);background:#fff7e8f2;border:3px solid #8b5b30;border-radius:24px;padding:20px 18px;text-align:center;color:#4b321f;box-shadow:0 16px 35px #0003}.loadingTitle{font-size:23px;font-weight:900;margin-bottom:7px}.loadingSub{font-size:12px;opacity:.72}.spinner{width:42px;height:42px;border-radius:50%;border:5px solid #d9c8aa;border-top-color:#7b5530;margin:15px auto 0;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.animal{display:none;position:absolute;right:10px;top:100px;width:190px;background:#fff8e9f2;color:#3b2a1c;border:2px solid #7d542e;border-radius:17px;padding:10px;box-shadow:0 8px 20px #0003;pointer-events:auto}.animal.on{display:block}.animal h3{margin:0 0 5px;font-size:16px}.small{font-size:10px;opacity:.75;margin-bottom:5px}.row{display:flex;align-items:center;gap:5px;font-size:10px;margin:4px 0}.bar{height:8px;flex:1;background:#d9cdbb;border-radius:20px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,#6c8e3f,#9eba55);border-radius:20px;transition:width .2s}.pet{width:100%;margin-top:7px;border:0;border-radius:10px;padding:7px;background:#e8b34d;font-weight:800;color:#4c3219}.hint{position:absolute;left:50%;top:105px;transform:translateX(-50%);padding:6px 10px;border-radius:12px;background:#342619b8;color:#fff;font-size:10px;transition:.5s}
 </style>
+<script type="importmap">
+{"imports":{"three":"https://unpkg.com/three@0.169.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.169.0/examples/jsm/"}}
+</script>
 </head>
 <body>
 <div id="game"></div>
@@ -15,7 +22,7 @@
     <div class="card brand">🐑 عزبة نجد</div>
     <div class="card stats">المستوى 1<br>🪙 850　🌾 المخزون <span id="feed">12</span><br>المعلف <span id="trough">35</span>%　💧 <span id="waterLevel">100</span>%<br>القطيع <span id="count">0</span>/10</div>
   </div>
-  <div id="loading" class="loading">جاري تجهيز القطيع…</div>
+  <div id="loading" class="loading"><div class="loadingCard"><div class="loadingTitle">عزبة نجد</div><div class="loadingSub">تجهيز العالم والقطيع ثلاثي الأبعاد</div><div class="spinner"></div></div></div>
   <div id="hint" class="hint">اضغط على أي نجدية وشاهد حالتها</div>
   <div id="toast" class="toast"></div>
   <div id="animal" class="animal">
@@ -33,7 +40,7 @@
     <button class="btn" id="marketBtn">📰 السوق</button>
   </div>
 </div>
-<script type="module" src="./app.js"></script>
-<script>setTimeout(()=>{const h=document.getElementById('hint');if(h)h.style.opacity='0'},5500)</script>
+<script type="module" src="./app.js?v=4"></script>
+<script>setTimeout(()=>{const h=document.getElementById('hint');if(h)h.style.opacity='0'},5500);setTimeout(()=>{const l=document.getElementById('loading');if(l&&document.getElementById('count')?.textContent==='0'){l.querySelector('.loadingSub').textContent='إذا طال التحميل، حدّث الصفحة مرة واحدة';}},12000)</script>
 </body>
 </html>
